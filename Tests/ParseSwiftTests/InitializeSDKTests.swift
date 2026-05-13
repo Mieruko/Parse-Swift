@@ -657,6 +657,9 @@ class InitializeSDKTests: XCTestCase {
         objcInstallation.objectId = objcInstallationObjectId
         objcInstallation.channels = ["global"]
         objcInstallation.deviceToken = "deviceToken"
+        objcInstallation.appVersion = "objcAppVersion"
+        objcInstallation.localeIdentifier = "fr-FR"
+        objcInstallation.timeZone = "Europe/Paris"
         objcInstallation.createdAt = Date(timeIntervalSince1970: 10)
         objcInstallation.updatedAt = Date(timeIntervalSince1970: 20)
         try writeObjectiveCInstallation(objcInstallation)
@@ -679,6 +682,9 @@ class InitializeSDKTests: XCTestCase {
         XCTAssertEqual(installation.installationId, objcInstallationId)
         XCTAssertEqual(installation.channels, objcInstallation.channels)
         XCTAssertEqual(installation.deviceToken, objcInstallation.deviceToken)
+        XCTAssertEqual(installation.appVersion, objcInstallation.appVersion)
+        XCTAssertEqual(installation.localeIdentifier, objcInstallation.localeIdentifier)
+        XCTAssertEqual(installation.timeZone, objcInstallation.timeZone)
         XCTAssertEqual(Installation.currentContainer.installationId, objcInstallationId)
 
         guard let keychainInstallation: CurrentInstallationContainer<Installation>

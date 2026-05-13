@@ -96,7 +96,9 @@ extension BaseParseInstallation {
             return
         }
 
-        updatedInstallation.updateAutomaticInfo()
+        if objcInstallation == nil {
+            updatedInstallation.updateAutomaticInfo()
+        }
         currentContainer.installationId = installationId
         currentContainer.currentInstallation = updatedInstallation
         saveCurrentContainerToKeychain()
